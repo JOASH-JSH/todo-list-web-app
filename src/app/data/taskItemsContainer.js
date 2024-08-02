@@ -6,20 +6,4 @@ export default class TaskItemsContainer {
         this.type = type;
         this.taskItems = [];
     }
-
-    addTaskItem(taskItem) {
-        this.taskItems.push(taskItem);
-    }
-
-    removeTaskItem(index) {
-        this.taskItems.splice(index, 1);
-    }
-
-    getTaskItems() {
-        return this.taskItems;
-    }
-
-    getTaskItemsCount() {
-        return this.taskItems.length;
-    }
 }
