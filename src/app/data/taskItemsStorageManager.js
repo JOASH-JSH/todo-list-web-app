@@ -6,10 +6,10 @@ export default class TaskItemsStorageManager {
     }
 
     save(data) {
-        this.localStorage.setItem(this._storageKey, JSON.stringify(data));
+        localStorage.setItem(this._storageKey, JSON.stringify(data));
     }
 
     get() {
-        return JSON.parse(this.localStorage.getItem(this._storageKey));
+        return JSON.parse(localStorage.getItem(this._storageKey));
     }
 }
