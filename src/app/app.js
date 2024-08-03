@@ -34,8 +34,16 @@ export default class App {
         this.ui.renderMainLayout();
         // Render task containers.
         this.ui.renderTaskItemsContainers(data.taskItemsContainers);
+        // Setup hide or show sidebar event.
+        this.setupHideShowSidebarEvent();
         // Setup select task container event.
         this.setupTaskItemsContainerSelectEvent();
+    }
+
+    setupHideShowSidebarEvent() {
+        const button = document.querySelector(".hide-show-sidebar-btn");
+        const aside = document.querySelector("#aside");
+        button.addEventListener("click", (event) => (aside.classList.toggle("hide")));
     }
 
     setupTaskItemsContainerSelectEvent() {
