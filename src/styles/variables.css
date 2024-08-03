@@ -1,0 +1,17 @@
+:root {
+    /* primary background color */
+    --background-clr-1: #000000;
+    /* sidebar inner divs background color */
+    --background-clr-2: #1e1e1e;
+    /* task items container selected background color */
+    --background-clr-3: #ff70661a;
+    /* task items container hovered background color */
+    --background-clr-4: #ffd9001a;
+
+    /* primary font color */
+    --text-clr-1: #ffffff;
+    /* secondary font color */
+    --text-clr-2: #ff7066;
+    /* tertiary font color */
+    --text-clr-3: #adadad;
+}

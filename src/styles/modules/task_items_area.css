@@ -1,0 +1,47 @@
+.task-items-container-task-items-area {
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.task-items-container-task-items-area > div:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.task-items-container-task-items-area > div:nth-child(1) > p:first-child {
+    font-size: 2.8rem;
+    font-weight: 600;
+}
+
+.task-items-container-task-items-area > div:nth-child(1) > p:last-child {
+    font-size: 1.4rem;
+    display: flex;
+    gap: 0.4em;
+}
+
+.task-items-container-task-items-area > div:nth-child(3) button {
+    font-size: 1.4rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    cursor: pointer;
+}
+
+.task-items-container-task-items-area > div:nth-child(3) button i {
+    color: tomato;
+    padding: 0.2em;
+    border-radius: 50%;
+}
+
+.task-items-container-task-items-area > div:nth-child(3) button:hover i {
+    color: white;
+    background-color: tomato;
+}
+
+.task-items-container-task-items-area > div:nth-child(3) button:hover {
+    color: tomato;
+}

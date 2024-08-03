@@ -1,0 +1,31 @@
+/* aside */
+
+#aside.hide {
+    display: none;
+}
+
+#aside .task-items-container:hover {
+    background-color: rgba(255, 217, 0, 0.125); /* gold 0.125*/
+}
+
+#aside .task-items-container.selected {
+    color: tomato;
+    background-color: rgba(255, 99, 71, 0.125); /* tomato 0.125 */
+}
+
+#aside .task-items-container .edit-task-item-btn:hover {
+    color: #32cd32;
+}
+
+#aside .task-items-container .remove-task-item-container-btn:hover {
+    color: #ff0000cc; /* red 0.8 */
+}
+
+#aside .add-project-btn:hover {
+    color: tomato;
+}
+
+#aside .clear-all-data-btn:hover {
+    color: rgba(255, 0, 0, 0.8);
+    background-color: transparent;
+}
