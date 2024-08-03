@@ -32,12 +32,47 @@ export default class App {
 
         // Render the main layout of the app.
         this.ui.renderMainLayout();
-        // Render task containers.
-        this.ui.renderTaskItemsContainers(data.taskItemsContainers);
+        // Add new project form to the layout.
+        this.ui.addNewProjectForm();
+        // Add new task item form to the layout.
+        this.ui.addNewTaskItemForm();
+
         // Setup hide or show sidebar event.
         this.setupHideShowSidebarEvent();
+
+        this.combineRendersAndEvents();
+
+        this.setupProjectFormSubmitEvent();
+    }
+
+    combineRendersAndEvents() {
+        // Retrieve tasks data from local storage. 
+        const data = this.taskItemsStorageManager.get();
+
+        // Render task containers.
+        this.ui.renderTaskItemsContainers(data.taskItemsContainers);
+
         // Setup select task container event.
         this.setupTaskItemsContainerSelectEvent();
+
+        // Setup delete task container event.
+        this.setupTaskItemsContainerDeleteEvent();
+
+        // Setup project form containing dialog box open event 
+        this.setupDialogBoxEvent(
+            "open-new-project-form-dialog-btn", 
+            "new-project-form-dialog",
+            "open",
+            ""
+        )
+
+        // Setup project form containing dialog box close event 
+        this.setupDialogBoxEvent(
+            "close-new-project-form-dialog-btn", 
+            "new-project-form-dialog",
+            "close",
+            "new-project-form"
+        )
     }
 
     setupHideShowSidebarEvent() {
@@ -75,6 +110,67 @@ export default class App {
                 // Render container's task items
                 this.ui.renderTaskItemsContainerTaskItems(data.taskItemsContainers[index]);
             });
+        });
+    }
+
+    setupTaskItemsContainerDeleteEvent() {
+        const buttons = document.querySelectorAll(".remove-task-items-container-btn");
+
+        buttons.forEach((button) => {
+            button.addEventListener("click", (event) => {
+                event.stopPropagation();
+
+                const index = parseInt(button.dataset["taskItemsContainerIndex"]);
+
+                const data = this.taskItemsStorageManager.get();
+                
+                data.taskItemsContainers.splice(index, 1);
+
+                this.taskItemsStorageManager.save(data);
+
+                this.combineRendersAndEvents();
+            });
+        });
+    }
+
+    setupDialogBoxEvent(buttonId, dialogId, action, formId) {
+        const button = document.getElementById(buttonId);
+        const dialog = document.getElementById(dialogId);
+        const form = document.getElementById(formId);
+
+        button.addEventListener("click", (event) => {
+            event.stopPropagation();
+
+            if (action === "open") {
+                dialog.showModal();
+            } else if (action === "close") {
+                form.reset();
+                dialog.close();
+            }
+        });
+    }
+
+    setupProjectFormSubmitEvent() {
+        const form = document.getElementById("new-project-form");
+        const dialog = document.getElementById("new-project-form-dialog");
+
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+
+            const projectTitle = formData.get("title");
+
+            const data = this.taskItemsStorageManager.get();
+
+            data.taskItemsContainers.push(new TaskItemsContainer(projectTitle.trim(), "project"));
+
+            this.taskItemsStorageManager.save(data);
+
+            form.reset();
+            dialog.close();
+
+            this.combineRendersAndEvents();
         });
     }
 }
