@@ -1,0 +1,101 @@
+.dialog {
+    width: 50rem;
+    color: white;
+    background-color: #1e1e1e;
+    border: none;
+    border-radius: 0.4rem;
+    box-shadow: 0 0 2rem black;
+
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, -75%);
+}
+
+.dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dialog .dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    font-size: 1.8rem;
+    border-bottom: 1px solid #777;
+}
+
+.dialog .dialog-header p {
+    font-weight: 500;
+}
+
+.dialog .dialog-header button {
+    color: white;
+    font-size: inherit;
+    padding: 0.5em;
+    border-radius: 0.2em;
+    display: flex;
+    align-items: center;
+}
+
+.dialog form {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.dialog form label {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-bottom: 0.5em;
+}
+
+.dialog form input,
+.dialog form textarea,
+.dialog form select {
+    width: 100%;
+    color: white;
+    background-color: inherit;
+    border: 1px solid #777;
+    outline: none;
+    font-size: 1.5rem;
+    padding: 0.4em 0.4em;
+    border-radius: 0.2em;
+}
+
+.dialog form textarea {
+    resize: none;
+    font-family: system-ui, sans-serif;
+}
+
+.dialog form select option {
+    background-color: #1e1e1e;
+}
+
+.dialog form > div:last-child {
+    display: flex;
+    gap: 1rem;
+    justify-content: end;
+}
+
+.dialog form button {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 0.4em 0.8em;
+    border: none;
+    border-radius: 0.2em;
+    color: white;
+    cursor: pointer;
+}
+
+.dialog form button[type="button"] {
+    background-color: #777;
+}
+
+form button[type="submit"] {
+    background-color: tomato;
+}

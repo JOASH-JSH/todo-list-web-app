@@ -20,26 +20,27 @@
     border-radius: 0.2em;
     display: flex;
     justify-content: space-between;
+    gap: 1rem;
     cursor: pointer;
 }
 
 #aside .task-items-container div {
     display: flex;
     align-items: center;
-}
-
-#aside .task-items-container div:first-child {
     gap: 0.5em;
+    overflow: hidden;
 }
 
-#aside .task-items-container div:last-child {
-    gap: 1em;
+#aside .task-items-container .task-item-container-title {
+    width: 25ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 #aside .task-items-container button {
     color: white;
     font-size: inherit;
-    cursor: pointer;
 }
 
 #aside .projects-container {
@@ -56,6 +57,11 @@
     justify-content: space-between;
     border-radius: 0.4em;
     background-color: #008080cc; /* teal 0.8*/
+    white-space: nowrap;
+}
+
+.remove-task-items-container-btn {
+    color: red;
 }
 
 #aside .projects-container-header p {
@@ -63,14 +69,13 @@
     font-weight: 600;
 }
 
-#aside .add-project-btn {
+#aside #open-new-project-form-dialog-btn {
     color: white;
     font-size: 2.4rem;
     display: flex;
-    cursor: pointer;
 }
 
-.project-task-items-containers {
+#aside .project-task-items-containers {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -79,14 +84,10 @@
 }
 
 #aside .project-task-items-containers::-webkit-scrollbar {
-    width: 2px;
+    width: 0;
 }
 
-.project-task-items-containers::-webkit-scrollbar-thumb {
-    border: 0.125em solid #ff0000cc; /* red 0.8 */
-}
-
-#aside .clear-all-data-btn {
+#clear-all-data-btn {
     width: 100%;
     font-size: 1.6rem;
     font-weight: 600;
@@ -95,5 +96,4 @@
     padding: 0.5em;
     border-radius: 0.2em;
     border: 0.125em solid #ff0000cc; /* red 0.8 */
-    cursor: pointer;
 }

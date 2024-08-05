@@ -1,7 +1,7 @@
-@import url("./styles/variables.css");
 @import url("./styles/base.css");
 @import url("./styles/layout.css");
 @import url("./styles/modules/aside.css");
 @import url("./styles/modules/header.css");
 @import url("./styles/modules/task_items_area.css");
+@import url("./styles/modules/form.css");
 @import url("./styles/states.css");

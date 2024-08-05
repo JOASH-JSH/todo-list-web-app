@@ -1,21 +1,18 @@
-header > i {
-    font-size: 1.8rem;
-    color: var(--text-clr-3);
-}
-
-.hide-show-sidebar-btn {
+#header button {
     width: 4rem;
     height: 4rem;
     background-color: transparent;
-    cursor: pointer;
+    padding: 0 0.2em;
     border-radius: 0.2em;
+    z-index: 1;
 }
 
-.hide-show-sidebar-btn:hover {
-    background-color: #1e1e1e;
-}
-
-.hide-show-sidebar-btn img {
+#header button img {
     width: 100%;
     height: 100%;
+}
+
+#header button i {
+    font-size: 1.8rem;
+    color: white;
 }

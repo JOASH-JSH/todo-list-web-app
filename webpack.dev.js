@@ -24,7 +24,14 @@ module.exports = {
                 test: /\.svg$/,
                 type: "asset/resource",
                 generator: {
-                    filename: "assets/icons/[hash][ext]",
+                    filename: "./assets/icons/[hash][ext]",
+                },
+            },
+            {
+                test: /\.(webp|png)$/,
+                type: "asset/resource",
+                generator: {
+                    filename: "./assets/images/[hash][ext]",
                 },
             },
         ],

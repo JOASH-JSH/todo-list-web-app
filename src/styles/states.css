@@ -1,31 +1,65 @@
 /* aside */
 
 #aside.hide {
-    display: none;
+    width: 0;
+    opacity: 0;
 }
 
 #aside .task-items-container:hover {
-    background-color: rgba(255, 217, 0, 0.125); /* gold 0.125*/
+    background-color: #ffd90020; /* gold 0.125*/
 }
 
 #aside .task-items-container.selected {
     color: tomato;
-    background-color: rgba(255, 99, 71, 0.125); /* tomato 0.125 */
+    background-color: #ff634720; /* tomato 0.125 */
 }
 
-#aside .task-items-container .edit-task-item-btn:hover {
-    color: #32cd32;
-}
-
-#aside .task-items-container .remove-task-item-container-btn:hover {
+#aside .task-items-container .remove-task-items-container-btn:hover {
     color: #ff0000cc; /* red 0.8 */
 }
 
-#aside .add-project-btn:hover {
+#aside #open-new-project-form-dialog-btn:hover {
     color: tomato;
 }
 
-#aside .clear-all-data-btn:hover {
-    color: rgba(255, 0, 0, 0.8);
+#clear-all-data-btn:hover {
+    color: #ff0000cc; /* red 0.8 */
     background-color: transparent;
+}
+
+/* header */
+
+#header button:hover {
+    background-color: #1e1e1e;
+}
+
+/* task items area */
+
+#open-new-task-item-form-dialog-btn:hover i {
+    color: white;
+    background-color: tomato;
+}
+
+#open-new-task-item-form-dialog-btn:hover {
+    color: tomato;
+}
+
+/* form */
+
+.dialog .dialog-header button:hover {
+    background-color: #323232;
+}
+
+.dialog form input:focus,
+.dialog form textarea:focus,
+.dialog form select:focus {
+    border-color: rgb(115, 215, 255);
+}
+
+.dialog form button[type="button"]:hover {
+    background-color: #666;
+}
+
+.dialog form button[type="submit"]:hover {
+    background-color: rgb(235, 79, 51);
 }

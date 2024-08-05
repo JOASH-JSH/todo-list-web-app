@@ -17,11 +17,13 @@ html {
 body {
     width: 100%;
     height: 100%;
-    color: var(--text-clr-1);
-    background-color: var(--background-clr-1);
+    color: white;
+    background-color: #111;
+    position: relative;
 }
 
 button {
     border: none;
     background: transparent;
+    cursor: pointer;
 }
