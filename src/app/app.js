@@ -6,6 +6,7 @@ import UI from "./ui/ui.js";
 import TaskItemsStorageManager from "./data/taskItemsStorageManager.js";
 import TaskItemsContainer from "./data/taskItemsContainer.js";
 import TaskItem from "./data/taskItem.js";
+import Form from "./data/form.js";
 
 export default class App {
     constructor() {
@@ -315,16 +316,13 @@ export default class App {
             event.preventDefault();
 
             // Get form data.
-            const formData = new FormData(form);
-
-            // Get new project title.
-            const projectTitle = formData.get("title");
+            const formData = new Form(form).getFormData();
 
             // Retrive tasks data.
             const data = this.taskItemsStorageManager.get();
 
             // Add new project container to tasks data.
-            data.taskItemsContainers.push(new TaskItemsContainer(projectTitle.trim(), "project", []));
+            data.taskItemsContainers.push(new TaskItemsContainer(formData.title.trim(), "project", []));
 
             // Save updated tasks data.
             this.taskItemsStorageManager.save(data);
@@ -352,13 +350,7 @@ export default class App {
             event.preventDefault();
 
             // Get form data
-            const formData = new FormData(form);
-
-            // Empty plain object.
-            const newTaskItem = {};
-
-            // Convert form data to plain object.
-            formData.forEach((value, key) => (newTaskItem[key] = value));
+            const formData = new Form(form).getFormData();
 
             // Retrive tasks data.
             const data = this.taskItemsStorageManager.get();
@@ -372,10 +364,10 @@ export default class App {
             // Add new task item to tasks data.
             data.taskItemsContainers[containerIndex].taskItems.push(
                 new TaskItem(
-                    newTaskItem.title.trim(), 
-                    newTaskItem.description.trim(), 
-                    newTaskItem.dueDate, 
-                    newTaskItem.priority
+                    formData.title.trim(), 
+                    formData.description.trim(), 
+                    formData.dueDate, 
+                    formData.priority
                 )
             );
 
@@ -385,7 +377,11 @@ export default class App {
             form.reset(); // reset form field
             dialog.close(); // close dialog box
 
-            this.combineTaskItemRendersAndEvents(index);
+            // Re-render remaining task items.
+            // Setup add task items form containing dialog box open/close event.
+            // Setup task container select event.
+            // Setup mark task item complete event.
+            this.combineTaskItemRendersAndEvents(containerIndex);
         });
     }
 }
