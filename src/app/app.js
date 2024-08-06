@@ -322,7 +322,13 @@ export default class App {
             const data = this.taskItemsStorageManager.get();
 
             // Add new project container to tasks data.
-            data.taskItemsContainers.push(new TaskItemsContainer(formData.title.trim(), "project", []));
+            data.taskItemsContainers.push(
+                new TaskItemsContainer(
+                    formData.title.trim(), 
+                    "project", 
+                    []
+                )
+            );
 
             // Save updated tasks data.
             this.taskItemsStorageManager.save(data);
