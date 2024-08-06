@@ -13,9 +13,8 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: "./src/index.html",
-            filename: "index.[contenthash].html",
         }),
-        new MiniCssExtractPlugin({ filename: "index.[contenthash].css" }),
+        new MiniCssExtractPlugin({ filename: "index.css" }),
     ],
     module: {
         rules: [
